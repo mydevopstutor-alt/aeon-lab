@@ -24,7 +24,9 @@ clash:{bad:1,n:"'Bind for 0.0.0.0:8080 failed: port is already allocated'.",t:"T
 win:{n:"http://localhost:8081 glows with your flag. The Dock is yours, operator.",t:"Run it (skip this if you already ran it), check it, then clean up:",c:"docker run -d --name flag -p 8081:80 aeon-flag\ndocker ps\ndocker rm -f beacon flag",o:[["Play again","start"]]}};
 const el=document.getElementById('scene');
 function esc(s){return s.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]))}
-function go(k){const s=S[k];el.innerHTML=`${s.bad?'<p class="bad">✖ Wrong turn</p>':''}<p class="narr">NARRATOR: ${s.n}</p><p>${s.t}</p>${s.c?`<pre><button class="copy">copy</button><code>${esc(s.c)}</code></pre>`:''}<div class="choices"></div>`;
+function go(k){const s=S[k];const img=k==='win'?'win':s.bad?'alarm':'start';el.innerHTML=`<img src="lilith/scenes/${img}.jpg" alt="" style="width:100%;border-radius:10px;border:1px solid var(--teal)">${k==='start'?'<p class="narr">Prologue: <a href="liu/">The Docker Dock Goes Dark</a> by Liu</p>':''}${s.bad?'<p class="bad">✖ Wrong turn</p>':''}<p class="narr">NARRATOR: ${s.n}</p><p>${s.t}</p>${s.c?`<pre><button class="copy">copy</button><code>${esc(s.c)}</code></pre>`:''}<div class="choices"></div>`;
  const b=el.querySelector('.copy');if(b)b.onclick=()=>{navigator.clipboard.writeText(s.c);b.textContent='copied'};
  const ch=el.querySelector('.choices');s.o.forEach(([l,to])=>{const x=document.createElement('button');x.textContent='› '+l;x.onclick=()=>go(to);ch.appendChild(x)});}
 go('start');
+const a=document.getElementById('bgm'),m=document.getElementById('music');
+m.onclick=()=>{if(a.paused){a.play();m.textContent='♪ Music: on'}else{a.pause();m.textContent='♪ Music: off'}};
