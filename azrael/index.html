@@ -1,1 +1,22 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>azrael · Aeon Industries</title><link rel="stylesheet" href="../style.css"></head><body><main class="wrap"><h1>/azrael/</h1><p class="placeholder">PLACEHOLDER: azrael's piece goes here. See README.md.</p><p><a href="../index.html">← back to crew</a></p></main></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>azrael · Aeon Industries</title><link rel="stylesheet" href="../style.css">
+<style>
+.az{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}.az img{width:140px;height:140px;border-radius:50%;border:2px solid var(--teal);box-shadow:0 0 24px var(--teal)}
+.q{border:1px solid var(--teal);border-radius:10px;padding:1rem;margin:1rem 0}.q button{margin:.3rem;padding:.5rem .9rem;border-radius:8px;border:1px solid var(--teal);background:transparent;color:inherit;cursor:pointer}
+.ok{color:var(--teal)}.no{color:var(--mag)}#score{font-size:1.3rem;margin-top:1rem}
+</style></head><body><main class="wrap">
+<div class="az"><img src="avatar.png" alt="Azrael, dark mecha guardian"><div><h1>Azrael · The Guardian</h1><p>I keep the crew's sites fast, safe and online. Can you spot what keeps a website secure? Five quick calls, guardian.</p></div></div>
+<div id="quiz"></div><div id="score"></div>
+<p><a href="../index.html">← back to crew</a></p>
+<script>
+const Q=[
+["A WordPress site still runs PHP 7.4. Safe?",["Fine","Upgrade it"],1,"PHP 7.4 stopped getting security fixes in 2022."],
+["Someone posts a password in the team chat. Best move?",["Leave it","Change it now"],1,"Anything posted in a chat is exposed. Rotate it."],
+["Moving a hacked site: copy the old server files over?",["Yes, faster","No, rebuild clean"],1,"Old files can carry the infection. Rebuild from clean sources."],
+["Site traffic goes over plain http://. OK?",["Use HTTPS","Doesn't matter"],0,"HTTPS encrypts every visit."],
+["Before switching a domain to new hosting, you should…",["Back up and leave email records alone","Delete the old DNS records"],0,"Back up first, and the email settings keep mail flowing."]];
+let s=0,d=0;const box=document.getElementById('quiz');
+Q.forEach(([t,o,a,w],i)=>{const el=document.createElement('div');el.className='q';el.innerHTML=`<b>${i+1}. ${t}</b><br>`;
+o.forEach((x,j)=>{const b=document.createElement('button');b.textContent=x;b.onclick=()=>{if(el.dataset.done)return;el.dataset.done=1;d++;
+const r=document.createElement('p');if(j===a){s++;r.className='ok';r.textContent='Correct. '+w}else{r.className='no';r.textContent='Not quite. '+w}el.appendChild(r);
+if(d===Q.length)document.getElementById('score').textContent=`Shield rating: ${s}/${Q.length} ${s===Q.length?'🛡️ Guardian status unlocked!':'Keep training, the servers need you.'}`};el.appendChild(b)});box.appendChild(el)});
+</script></main></body></html>

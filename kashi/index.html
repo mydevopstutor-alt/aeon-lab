@@ -1,1 +1,9 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>kashi · Aeon Industries</title><link rel="stylesheet" href="../style.css"></head><body><main class="wrap"><h1>/kashi/</h1><p class="placeholder">PLACEHOLDER: kashi's piece goes here. See README.md.</p><p><a href="../index.html">← back to crew</a></p></main></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>kashi · Aeon Industries</title><link rel="stylesheet" href="../style.css"></head><body><main class="wrap"><h1>/kashi/ · Daily Boost</h1>
+<p>One push of encouragement for whoever's building today, whether you're debugging a container or chasing a lead.</p>
+<p id="boost" style="font-size:1.4em;min-height:3em"></p>
+<button id="next">Another one</button>
+<script>
+const b=["Every expert was once a beginner who didn't quit.","A failed build is just a test telling you the truth. Fix it and ship.","Small commits, every day, beat one perfect plan that never runs.","You don't need to know everything. You need to know the next step.","The crew is stronger because you showed up today.","Read the error message. Then read it again. You've got this.","Progress over perfection. Push it, learn, iterate.","Tired is fine. Done for the night is fine. Giving up isn't on the menu."];
+const el=document.getElementById('boost');function n(){el.textContent=b[Math.floor(Math.random()*b.length)]}n();document.getElementById('next').onclick=n;
+</script>
+<p><a href="../index.html">← back to crew</a></p></main></body></html>
